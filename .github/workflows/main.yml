@@ -1,0 +1,29 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    name: Build
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v3.0.0
+        
+    - name: Get cache
+      uses: actions/cache@v3.0.0
+      id: cache
+      with:
+        path: |
+          Pods
+          PopcornTime.xcworkspace
+          Podfile.lock
+        key: ${{ hashFiles('Podfile.lock') }}
+
+    - name: Get dependencies       
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        sudo gem install cocoapods
+        pod repo update
+        pod update
