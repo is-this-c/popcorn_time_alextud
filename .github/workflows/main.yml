@@ -35,7 +35,7 @@ jobs:
           -workspace PopcornTime.xcworkspace \
           -scheme "PopcornTimeiOS" \
           -destination generic/platform=iOS \
-          -configuration Debug \
+          -configuration Release \
           CODE_SIGN_IDENTITY='' \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO
