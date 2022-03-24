@@ -41,7 +41,7 @@ class PlayerSubtitleModel {
         vlcAppearance.setTextRendererFont?(settings.fontName as NSString)
         vlcAppearance.setTextRendererFontForceBold?(NSNumber(booleanLiteral: settings.style == .bold || settings.style == .boldItalic))
         
-        mediaplayer.media.addOptions([vlcSettingTextEncoding: settings.encoding])
+        mediaplayer.media?.addOptions([vlcSettingTextEncoding: settings.encoding])
     }
     
     func loadSubtitles(localPathToMedia: URL) {
@@ -84,7 +84,7 @@ class PlayerSubtitleModel {
         }, set: { [unowned self] encoding in
             settings.encoding = encoding
             settings.save()
-            mediaplayer.media.addOptions([vlcSettingTextEncoding: encoding])
+            mediaplayer.media?.addOptions([vlcSettingTextEncoding: encoding])
         })
     }()
     
