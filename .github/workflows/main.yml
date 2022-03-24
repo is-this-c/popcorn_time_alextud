@@ -42,11 +42,9 @@ jobs:
         
     - name: Package
       run: |
-        ls -al TopShelf
         cd ~
         mkdir Payload
-        cat Library/Developer/Xcode/Archives/*/*/Products/Applications/*.app || echo bad
-        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ (tvOS).app Payload
+        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(tvOS\).app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
         tar -xvf osx-ldid.tgz
         ./ldid -S Payload/PopcornTime.app/PopcornTime
