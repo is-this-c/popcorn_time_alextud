@@ -364,11 +364,11 @@ extension PlayerViewModel: VLCMediaPlayerDelegate {
         isPlaying = true
         
         progress.isBuffering = false
-        progress.remainingTime = mediaplayer.remainingTime?.stringValue
+        progress.remainingTime = mediaplayer.remainingTime!.stringValue
         progress.elapsedTime = mediaplayer.time.stringValue
         progress.progress = mediaplayer.position
         
-        let remaining = Int(mediaplayer.remainingTime?.intValue / 1000)
+        let remaining = Int(mediaplayer.remainingTime!.intValue / 1000)
         if remaining >= -ShowUpNextDuration {
             if progress.showUpNext == false && progress.showUpNextProgress == 0 {
                 progress.showUpNext = true
