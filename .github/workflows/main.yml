@@ -42,7 +42,7 @@ jobs:
         
     - name: Package
       run: |
-        sudo find /Library -type d -name "PopcornTime (tvOS).app"
+        sudo find /Library -type d -name "PopcornTime (tvOS).app" 2>/dev/null
         cd ~
         mkdir Payload
         cp -r "Library/Developer/Xcode/DerivedData/*/Build/Intermediates.noindex/ArchiveIntermediates/*/InstallationBuildProductsLocation/Applications/PopcornTime (tvOS).app" Payload
