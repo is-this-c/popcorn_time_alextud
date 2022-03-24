@@ -33,7 +33,7 @@ jobs:
         sudo xcode-select -s /Applications/Xcode_13.0.app
         xcodebuild build \
           -workspace PopcornTime.xcworkspace \
-          -scheme "PopcornTimeiOS" \
+          -scheme "abc" \
           -destination generic/platform=iOS \
           -configuration Release \
           CODE_SIGN_IDENTITY='' \
