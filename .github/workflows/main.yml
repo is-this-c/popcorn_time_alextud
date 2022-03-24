@@ -26,4 +26,34 @@ jobs:
       run: |
         sudo gem install cocoapods
         pod repo update
-        pod update
+        pod update   
+                
+    - name: Compile
+      run: |
+        sudo xcode-select -s /Applications/Xcode_13.2.1.app
+        xcodebuild archive \
+          -workspace PopcornTime.xcworkspace \
+          -scheme TopShelf \
+          -destination generic/platform=tvOS \
+          -configuration Debug \
+          CODE_SIGN_IDENTITY='' \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
+        
+    - name: Package
+      run: |
+        cd ~
+        mkdir Payload
+        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime.app Payload
+        wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
+        tar -xvf osx-ldid.tgz
+        ./ldid -S Payload/PopcornTime.app/PopcornTime
+        zip -r popcorn_time.ipa Payload
+        rm -r Payload
+        
+    - name: Upload
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: 'popcorn_time'
+        path: |
+          ~/popcorn_time.ipa
