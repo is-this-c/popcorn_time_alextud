@@ -33,9 +33,9 @@ jobs:
         sudo xcode-select -s /Applications/Xcode_13.0.app
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
-          -scheme "PopcornTime (iOS)" \
+          -scheme "PopcornTimeiOS" \
           -destination generic/platform=iOS \
-          -configuration Release \
+          -configuration Debug \
           CODE_SIGN_IDENTITY='' \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO
