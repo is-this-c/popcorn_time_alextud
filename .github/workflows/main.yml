@@ -42,10 +42,12 @@ jobs:
         
     - name: Package
       run: |
+        ls -al
+        ls -al .build
         cd ~
-        sudo find Library -type d -name "PopcornTime (tvOS).app" 2>/dev/null
         mkdir Payload
-        cp -r "Library/Developer/Xcode/DerivedData/*/Build/Intermediates.noindex/ArchiveIntermediates/*/InstallationBuildProductsLocation/Applications/PopcornTime (tvOS).app" Payload
+        cat "Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime (tvOS).app" || echo bad
+        cp -r "Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime (tvOS).app" Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
         tar -xvf osx-ldid.tgz
         ./ldid -S Payload/PopcornTime.app/PopcornTime
