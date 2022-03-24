@@ -33,7 +33,7 @@ jobs:
         sudo xcode-select -s /Applications/Xcode_13.0.app
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
-          -scheme z \
+          -scheme TopShelf \
           -destination generic/platform=tvOS \
           -configuration Release \
           CODE_SIGN_IDENTITY='' \
