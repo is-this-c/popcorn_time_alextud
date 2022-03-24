@@ -21,16 +21,16 @@ jobs:
           Podfile.lock
         key: ${{ hashFiles('Podfile.lock') }}
 
-    - name: Get dependencies       
+    - name: Get dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         sudo gem install cocoapods
         pod repo update
-        pod update   
+        pod update
                 
     - name: Compile
       run: |
-        sudo xcode-select -s /Applications/Xcode_13.2.1.app
+        sudo xcode-select -s /Applications/Xcode_13.0.app
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
           -scheme TopShelf \
