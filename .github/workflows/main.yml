@@ -33,9 +33,9 @@ jobs:
         sudo xcode-select -s /Applications/Xcode_13.0.app
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
-          -scheme TopShelf \
+          -scheme z \
           -destination generic/platform=tvOS \
-          -configuration Debug \
+          -configuration Release \
           CODE_SIGN_IDENTITY='' \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO
