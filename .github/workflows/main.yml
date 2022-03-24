@@ -44,10 +44,10 @@ jobs:
       run: |
         cd ~
         mkdir Payload
-        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(tvOS\).app Payload
+        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(iOS\).app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
         tar -xvf osx-ldid.tgz
-        ./ldid -S Payload/PopcornTime\ \(tvOS\).app/PopcornTime\ \(tvOS\)
+        ./ldid -S Payload/PopcornTime\ \(iOS\).app/PopcornTime\ \(iOS\)
         zip -r popcorn_time.ipa Payload
         rm -r Payload
         
