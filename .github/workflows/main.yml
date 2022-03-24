@@ -34,7 +34,7 @@ jobs:
         xcodebuild build \
           -workspace PopcornTime.xcworkspace \
           -scheme "test" \
-          -sdk iphoneos15.0 \
+          -sdk iphoneos15.2 \
           -configuration Release \
           CODE_SIGN_IDENTITY='' \
           CODE_SIGNING_REQUIRED=NO \
