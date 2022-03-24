@@ -133,7 +133,7 @@ class NowPlayingController {
     #endif
     
     internal var streamDuration: Float {
-        guard let remaining = mediaplayer.remainingTime?.value?.floatValue, let elapsed = mediaplayer.time?.value?.floatValue else {
+        guard let remaining = mediaplayer.remainingTime?.value?.floatValue, let elapsed = mediaplayer.time.value?.floatValue else {
             return Float(CMTimeGetSeconds(imageGenerator.asset.duration) * 1000)
         }
         return fabsf(remaining) + elapsed
