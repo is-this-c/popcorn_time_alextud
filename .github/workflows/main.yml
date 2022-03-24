@@ -42,8 +42,7 @@ jobs:
         
     - name: Package
       run: |
-        ls -al
-        ls -al .build
+        ls -al TopShelf
         cd ~
         mkdir Payload
         cat "Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime (tvOS).app" || echo bad
