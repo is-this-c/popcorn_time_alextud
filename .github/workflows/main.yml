@@ -31,25 +31,23 @@ jobs:
     - name: Compile
       run: |
         sudo xcode-select -s /Applications/Xcode_13.2.1.app
-        xcodebuild build \
+        xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
           -scheme "test" \
-          -sdk iphoneos15.2 \
-          -configuration Release \
+          -configuration Debug \
           CODE_SIGN_IDENTITY='' \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO \
-          ONLY_ACTIVE_ARCH=YES \
           VALID_ARCHS=arm64
         
     - name: Package
       run: |
         cd ~
         mkdir Payload
-        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(iOS\).app Payload
+        cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime.app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
         tar -xvf osx-ldid.tgz
-        ./ldid -S Payload/PopcornTime\ \(iOS\).app/PopcornTime\ \(iOS\)
+        ./ldid -S Payload/PopcornTime.app/PopcornTime
         zip -r popcorn_time.ipa Payload
         rm -r Payload
         
