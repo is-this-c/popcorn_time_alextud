@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "237EC9FD26B8478100EE8B46 "
-               BuildableName = "PopcornTimeiOS.app"
-               BlueprintName = "PopcornTimeiOS"
+               BuildableName = "PopcornTime (iOS).app"
+               BlueprintName = "PopcornTime (iOS)"
                ReferencedContainer = "container:PopcornTime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "237EC9FD26B8478100EE8B46 "
-            BuildableName = "PopcornTimeiOS.app"
-            BlueprintName = "PopcornTimeiOS"
+            BuildableName = "PopcornTime (iOS).app"
+            BlueprintName = "PopcornTime (iOS)"
             ReferencedContainer = "container:PopcornTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -67,8 +67,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "237EC9FD26B8478100EE8B46 "
-            BuildableName = "PopcornTimeiOS.app"
-            BlueprintName = "PopcornTimeiOS"
+            BuildableName = "PopcornTime (iOS).app"
+            BlueprintName = "PopcornTime (iOS)"
             ReferencedContainer = "container:PopcornTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
