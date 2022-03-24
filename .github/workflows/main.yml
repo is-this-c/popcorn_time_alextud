@@ -47,8 +47,7 @@ jobs:
         cp -r Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(tvOS\).app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
         tar -xvf osx-ldid.tgz
-        mv Payload/PopcornTime\ \(tvOS\).app Payload/PopcornTime.app
-        ./ldid -S Payload/PopcornTime.app/PopcornTime
+        ./ldid -S Payload/PopcornTime\ \(tvOS\).app/PopcornTime\ \(tvOS\)
         zip -r popcorn_time.ipa Payload
         rm -r Payload
         
