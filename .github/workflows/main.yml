@@ -19,7 +19,7 @@ jobs:
           Pods
           PopcornTime.xcworkspace
           Podfile.lock
-        key: ${{ hashFiles('Podfile.lock') }}
+        key: ${{ hashFiles('Podfile.lock') }}_v2
 
     - name: Get dependencies
       if: steps.cache.outputs.cache-hit != 'true'
