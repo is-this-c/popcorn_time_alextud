@@ -32,7 +32,7 @@ jobs:
       run: |
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
-          -scheme "PopcornTime (iOS)" \
+          -scheme "PopcornTime (tvOS)" \
           -configuration Release \
           CODE_SIGN_IDENTITY= \
           CODE_SIGNING_REQUIRED=NO \
@@ -43,7 +43,7 @@ jobs:
       run: |
         mkdir Payload
         cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime*.app Payload
-        wget https://github.com/sbingner/ldid/releases/download/v2.1.4/osx-ldid.tgz
+        wget https://github.com/sbingner/ldid/releases/download/v2.1.4+16.g5b8581c/ldid-osx.gz
         tar -xvf osx-ldid.tgz
         ./ldid -S Payload/PopcornTime*.app/PopcornTime*
         zip -r popcorn_time.ipa Payload
