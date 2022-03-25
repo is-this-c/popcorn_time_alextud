@@ -19,7 +19,7 @@ jobs:
           Pods
           PopcornTime.xcworkspace
           Podfile.lock
-        key: ${{ hashFiles('Podfile.lock') }}_v2
+        key: ${{ hashFiles('Podfile.lock') }}
 
     - name: Get dependencies
       if: steps.cache.outputs.cache-hit != 'true'
@@ -34,7 +34,7 @@ jobs:
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
           -scheme "test" \
-          -configuration Debug \
+          -configuration Release \
           CODE_SIGN_IDENTITY='' \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO \
