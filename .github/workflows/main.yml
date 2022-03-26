@@ -15,10 +15,12 @@ jobs:
       uses: actions/cache@v3.0.0
       id: cache
       with:
+        # FIXME.  Podfile.lock needs to be cached, because a specs repo is altered after install.
         path: |
           Pods
           PopcornTime.xcworkspace
-        key: ${{ hashFiles('Podfile.lock') }}_v3
+          Podfile.lock
+        key: ${{ hashFiles('Podfile.lock') }}
 
     - name: Get dependencies
       if: steps.cache.outputs.cache-hit != 'true'
