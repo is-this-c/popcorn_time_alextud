@@ -53,4 +53,4 @@ jobs:
       with:
         name: 'popcorn_time'
         path: |
-          ~/popcorn_time.ipa
+          popcorn_time.ipa
