@@ -33,7 +33,7 @@ jobs:
       run: |
         xcodebuild archive \
           -workspace PopcornTime.xcworkspace \
-          -scheme "PopcornTime (iOS)" \
+          -scheme PopcornTime\ \(iOS\) \
           -configuration Release \
           CODE_SIGN_IDENTITY= \
           CODE_SIGNING_REQUIRED=NO \
