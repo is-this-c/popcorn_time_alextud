@@ -20,12 +20,12 @@ jobs:
           Pods
           PopcornTime.xcworkspace
           Podfile.lock
-        key: ${{ hashFiles('Podfile.lock') }}
+        key: ${{ hashFiles('Podfile.lock') }}_v4
 
     - name: Get dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        sudo gem install cocoapods
+        gem install cocoapods
         pod repo update
         pod update
                 
@@ -43,16 +43,16 @@ jobs:
     - name: Package
       run: |
         mkdir Payload
-        cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime*.app Payload
+        cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(iOS\).app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4+16.g5b8581c/ldid-osx.gz
         gunzip ldid-osx.gz
         chmod +x ldid-osx
-        ./ldid-osx -S Payload/PopcornTime*.app/PopcornTime*
-        zip -r popcorn_time.ipa Payload
+        ./ldid-osx -S Payload/PopcornTime\ \(iOS\).app/PopcornTime\ \(iOS\)
+        zip -r popcorn_time_ios.ipa Payload
         
     - name: Upload
       uses: actions/upload-artifact@v3.0.0
       with:
-        name: 'popcorn_time'
+        name: 'popcorn_time_ios'
         path: |
-          popcorn_time.ipa
+          popcorn_time_ios.ipa
