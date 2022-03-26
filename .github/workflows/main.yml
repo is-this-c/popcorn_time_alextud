@@ -97,11 +97,11 @@ jobs:
     - name: Package
       run: |
         mkdir Payload
-        cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime.app Payload
+        cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(tvOS\).app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4+16.g5b8581c/ldid-osx.gz
         gunzip ldid-osx.gz
         chmod +x ldid-osx
-        ./ldid-osx -S Payload/PopcornTime.app/PopcornTime
+        ./ldid-osx -S Payload/PopcornTime\ \(tvOS\).app/PopcornTime\ \(tvOS\)
         zip -r popcorn_time_tvos.ipa Payload
         
     - name: Upload
