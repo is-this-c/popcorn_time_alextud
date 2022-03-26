@@ -22,7 +22,7 @@ jobs:
           Podfile.lock
         key: ${{ hashFiles('Podfile.lock') }}_v4
 
-    - name: Get dependencies
+    - name: Get pods
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         gem install cocoapods
@@ -43,11 +43,11 @@ jobs:
     - name: Package
       run: |
         mkdir Payload
-        cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime\ \(iOS\).app Payload
+        cp -r ~/Library/Developer/Xcode/Archives/*/*/Products/Applications/PopcornTime.app Payload
         wget https://github.com/sbingner/ldid/releases/download/v2.1.4+16.g5b8581c/ldid-osx.gz
         gunzip ldid-osx.gz
         chmod +x ldid-osx
-        ./ldid-osx -S Payload/PopcornTime\ \(iOS\).app/PopcornTime\ \(iOS\)
+        ./ldid-osx -S Payload/PopcornTime.app/PopcornTime
         zip -r popcorn_time_ios.ipa Payload
         
     - name: Upload
